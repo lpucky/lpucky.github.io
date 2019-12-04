@@ -2289,7 +2289,7 @@ footer .right-col .line.mail .url > a{
 
 	/* Позиционируем псвевдоэлемент * относительно label */
 	.f_leave-request input[type=text] + label:after{
-		left: -119px;
+		left: -212px;
 	}
 
 
