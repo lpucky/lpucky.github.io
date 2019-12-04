@@ -1,0 +1,2486 @@
+/* ===========================================================================================
+Шрифты
+=========================================================================================== */
+
+/* Roboto */
+ @import url('https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap');
+
+ /* Russo one */
+ @font-face{
+ 	font-family: "Russo One";
+ 	src: url("../fonts/Russo_One.ttf") format("truetype");
+ 	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+ }
+
+ 
+
+
+/* ===========================================================================================
+Общие стили для всех блоков
+=========================================================================================== */
+*{
+	font-family: 'Russo One';
+	color: #333;
+}
+
+a,i{
+	color: #fff;
+}
+
+/* Блоки идущие после body получают максимальную ширину и выравнивание по центру */
+body > div{
+	max-width: 1920px;
+	margin: 0 auto;
+	position: relative;
+}
+
+/* Контейнер для содержимого блока */
+.container{
+	width: 100%;
+	max-width: 1170px;
+	margin: 0 auto;
+	padding: 0 15px;
+	overflow: hidden;
+}
+
+/* Анимация для кнопок */
+button,
+input[type=submit],
+table a,
+a.icon{
+	transition: .3s;
+}
+button:hover,
+input[type=submit]:hover,
+table a:hover,
+a.icon:hover{
+	transform: scale(1.07);
+	/* Чтобы текст не размывался при увеличении */
+	backface-visibility: hidden;
+	cursor: pointer;
+}
+
+/* Очистка float-ов */
+.clear{
+	content: "";
+	display: block;
+	clear: both;
+}
+
+
+/* ===========================================================================================
+Стили сайта
+=========================================================================================== */
+
+/* Всплывающее окно отправки заявки ------------------------------------------------------------------------- */
+#f_leave-request_pop-up{
+	display: none;
+	position: fixed;
+	height: 380px;
+	z-index: 1000;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 50%;
+	margin: unset;
+	transition: none;
+}
+
+/* Затемнение при открытии всплываюшего окна */
+.tint{
+	display: none;
+	content: "";
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, .5);
+	z-index: 999;
+	transition: none;
+}
+
+/* Top menu ----------------------------------------------------------------------------------------------------------- */
+.top-menu{
+	height: 60px;
+	background-color: #000000;
+	position: relative;
+	transition: unset;
+}
+
+.top-menu .container > div{
+	height: 50%;
+	transform: translateY(-50%);
+	margin-top: 30px;
+}
+
+/* Секция левая колонка */
+.section-left{
+	float: left;
+
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-ms-align-items: center;
+	align-items: center;
+}
+
+
+/* Логотип */
+.logo{
+	float: left;
+	font-size: 24px;
+	text-transform: uppercase;
+	vertical-align: middle;
+}
+.logo > span{
+	color: #ffaf02;
+}
+
+/* Иконка вк справа от лого */
+.top-menu .soc-icon.vk{
+	float: left;
+	width: 32px;
+	height: 32px;
+	border: 1px solid #ffaf02;
+	margin-left: 20px;
+	font-size: 14px;
+	text-align: center;
+	vertical-align: middle;
+}
+.top-menu .soc-icon.vk > i{
+	line-height: 32px;
+	color: #ffaf02;
+}
+/* Иконка вк при наведении */
+.top-menu .soc-icon.vk:hover{
+	border: 1px solid #44678c;
+	color: #44678c;
+}
+.top-menu .soc-icon.vk > i:hover{
+	color: #44678c;
+}
+
+/* Навигационная панель */
+.navbar-pc{
+	float: left;
+	margin-left: 66px;
+
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-ms-align-items: center;
+	align-items: center;
+}
+
+/* Элементы навигационной панели */
+.navbar-pc > a{
+	float: left;
+	margin-right: 16px;
+	font-family: Roboto;
+	font-size: 16px;
+	font-weight: 400;
+}
+/* Убираем отступ оследнего элемента */
+.navbar-pc > a:last-of-type{
+	margin-right: 0;
+}
+
+/* Секция правая колонка */
+.section-right{
+	float: right;
+
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-ms-align-items: center;
+	align-items: center;
+}
+
+/* Иконки */
+.section-right .icon{
+	float: left;
+	width: 24px;
+	height: 24px;
+	color: #fff;
+	font-size: 17px;
+
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-ms-align-items: center;
+	align-items: center;
+	justify-content: center;
+}
+/* Иконка whatsapp */
+.section-right .icon.whatsapp{
+	background-color: #1ad641;
+	margin-right: 4px;
+}
+/* Иконка viber */
+.section-right .icon.viber{
+	background-color: #7c3daf;
+	margin-right: 9px;
+}
+
+/* Номер телефона в заголовке */
+.navbar-pc .phone{
+	font-family: "Roboto";
+	font-size: 22px;
+	font-weight: 900;
+}
+
+/* Кнопка отображения мобильного меню */
+.top-menu button.mobile-menu{
+	display: none;
+	padding: 0;
+	margin-left: 34px;
+}
+.top-menu button.mobile-menu > i{
+	font-size: 24px;
+}
+
+/* Кнопка отображения мобильного меню при наведении*/
+.top-menu button.mobile-menu:hover > i,
+.top-menu button.mobile-menu.active > i{
+	color: #ffaf02;
+}
+
+/* Цвет фона top menu при включении мобильного меню */
+.top-menu.mobile{
+	background-color: rgba(0, 0, 0, .75);
+}
+
+/* Мобильное меню */
+.navbar-mobile{
+	height: auto !important;
+	margin-top: 0 !important;
+	transform: translateX(-50%) !important;
+	width: 100%;
+	position: absolute;
+	top: 60px;
+	left: 50%;
+	background-color: rgba(0, 0, 0, .75);
+	z-index: 10;
+	text-align: center;
+	transition: .3s;
+}
+
+/* Элементы мобильного меню */
+.navbar-mobile > a{
+	display: block;
+	line-height: 52px;
+	font-family: 'Roboto';
+	font-size: 18px;
+	font-weight: 500;
+}
+.navbar-mobile > a:hover{
+	color: #ffaf02;
+}
+
+
+/* Блок header ---------------------------------------------------------------------------------------------------------- */
+.block-header{
+	max-width: 1920px;
+	height: 740px;
+	background-image: url("../img/block-header-bg.jpg");
+	background-size: auto;
+	padding-top: 30px;
+	text-align: center;
+	position: relative;
+	overflow-x: hidden;
+	z-index: 1;
+}
+
+/* Заголовок блока */
+.block-header .block-title{
+	display: inline-block;
+	font-size: 28px;
+	text-transform: uppercase;
+	color: #fff;
+	padding: 9px 22px 11px 23px;
+	background-color: #ffaf02;
+}
+
+/* Тексты блока */
+.block-header .block-text{
+	font-size: 24px;
+	font-weight: 400;
+}
+
+/* Первый текст блока */
+.block-header .block-text.text-1{
+	line-height: 30px;
+	max-width: 840px;
+	margin: 19px auto 0;
+}
+
+/* Второй текст блока */
+.block-header .block-text.text-2{
+	display: inline-block;
+	margin-top: 12.9px;
+	border: 3px solid #ffaf02;
+	padding: 0 35px;
+	height: 50px;
+	line-height: 44px;
+}
+
+/* Секция с автомобилем */
+.section-car{
+	width: 1064px;
+	height: 381px;
+	transform: translateX(-50%);	
+	position: absolute;
+	bottom: 51px;
+	left: 50%;
+	background-image: url("../img/block-header-bg-car.png");
+	z-index: -1;
+}
+
+/* Обертка секции автомобиля */
+.section-car .wrapper{
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+/* Стили параметров для секции авто */
+.section-car .car-parameter{
+	height: 26px;
+	line-height: 26px;
+	display: inline-block;
+	font-family: "Roboto";
+	font-size: 14px;
+	font-weight: 700;
+	text-transform: uppercase;
+	background-color: #ffaf02;
+	padding: 0 10px;
+	position: absolute;
+}
+
+/* Стрелка-выноска */
+.section-car .car-parameter:before{
+	content: "";
+	border: 7px solid transparent;
+	border-top: 41px solid #ffaf02;
+	border-bottom: 41px solid transparent;
+	position: absolute;
+	z-index: -1;
+}
+
+/* Позиционирование каждого из параметров */
+.section-car .car-parameter.parameter-1{
+	top: -21px;
+	left: 63px;
+}
+.section-car .car-parameter.parameter-2{
+	top: -21px;
+	left: 508px;
+}
+.section-car .car-parameter.parameter-3{
+	top: 95px;
+	left: -37px;
+}
+.section-car .car-parameter.parameter-4{
+	top: 125px;
+	left: 488px;
+}
+.section-car .car-parameter.parameter-5{
+	top: 253px;
+	left: 422px;
+}
+.section-car .car-parameter.parameter-6{
+	top: 325px;
+	left: -38px;
+}
+.section-car .car-parameter.parameter-7{
+	top: 357px;
+	left: 301px;
+}
+
+/* Позиционирование каждой стрелки-выноски */
+.section-car .car-parameter.parameter-1:before,
+.section-car .car-parameter.parameter-3:before{
+	transform: rotate(-31deg);
+	top: 12px;
+	right: 23px;
+}
+.section-car .car-parameter.parameter-2:before,
+.section-car .car-parameter.parameter-4:before{
+	transform: rotate(31deg);
+	top: 12px;
+	left: 23px;
+}
+.section-car .car-parameter.parameter-5:before,
+.section-car .car-parameter.parameter-7:before{
+	transform: rotate(149deg);
+	bottom: 12px;
+	left: 23px;
+}
+.section-car .car-parameter.parameter-6:before{
+	transform: rotate(-149deg);
+	bottom: 12px;
+	right: 23px;
+}
+
+/* Форма в заголовке и всплывающая форма */
+.f_leave-request{
+	float: right;
+	margin-top: 100px;
+	width: 360px;
+	height: 350px;
+	background-color: #fff;
+	text-align: center;
+	z-index: 1;
+	padding: 43px 20px 0;
+}
+
+/* Заголовок формы */
+.f_leave-request .title{
+	color: #ffaf02;
+	font-size: 24px;
+	text-transform: uppercase;
+}
+
+/* Текст формы */
+.f_leave-request .text{
+	max-width: 250px;
+	margin: 0 auto;
+	color: #333;
+	font-family: Roboto;
+	font-size: 18px;
+	font-weight: 700;
+	text-transform: uppercase;
+	line-height: 25px;
+	margin-top: 18px;
+}
+
+/* Поля Name и phone */
+.f_leave-request input[type=text]{
+	width: 100%;
+	height: 40px;
+	border-radius: 3px;
+	border: 1px solid #ffaf02;
+	background-color: #fff;
+	padding: 14px 11px;	
+	margin-top: 20px;
+	z-index: 0;
+	color: #777;
+	font-family: Roboto;
+	font-size: 16px;
+	font-weight: 400;
+}
+
+/* Отступ первого поля */
+.f_leave-request input[type=text]:first-of-type{
+	margin-top: 16.5px;
+}
+
+/* Placeholder полей */
+.f_leave-request input[type=text]::placeholder{
+	color: #777;
+	font-family: Roboto;
+	font-size: 16px;
+	font-weight: 400;
+	position: relative;
+}
+
+/* Отключаем подсветку неправильных значений input */
+.f_leave-request input[type=text]:invalid{
+	box-shadow: none;
+}
+
+/* Когда в поле ничего нет - отображаем звездочку */
+.f_leave-request input[type=text]:invalid + label:after{
+	display: block;
+}
+
+/* Задаем родителя для Label */
+.f_leave-request input[type=text] + label{
+	position: relative;
+}
+/* Позиционируем псвевдоэлемент относительно label */
+.f_leave-request input[type=text] + label:after{
+	display: none;
+	content: "*";
+	font-family: Roboto;
+	font-size: 16px;
+	font-weight: 400;
+	color: #c80000;
+	position: absolute;
+	top: 0;
+	left: -208px;
+}
+
+/* Кнопка отправки формы */
+.f_leave-request input[type=submit]{
+	width: 100%;
+	font-family: "Russo One";
+	font-size: 20px;
+	margin-top: 20px;
+
+	height: 50px;
+	box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+	border-radius: 3px;
+	background-color: #ffaf02;
+}
+
+
+
+/* Блок counters -------------------------------------------------------------------------------------------------------- */
+.block-counters{
+	padding: 50px 0;
+}
+
+/* Обертка секции карточек */
+.block-counters .container{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-moz-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	-o-flex-wrap: wrap;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+/* Секции карточки */
+.block-counters .count{
+	width: 25%;
+	max-width: 263px;
+	text-align: center;
+}
+
+/* Секция номеров карточек */
+.block-counters .count .section-numbers{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: center;
+}
+
+/* Номера карточек */
+.block-counters .count .section-numbers .numbers{
+	width: 50px;
+	height: 70px;
+	background-color: #333;
+	background-image: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 50%, transparent 50%);
+	text-align: center;
+	color: #fff;
+	font-size: 48px;
+	text-transform: uppercase;
+	line-height: 70px;
+	margin-right: 5px;
+}
+.block-counters .count .section-numbers .numbers:last-of-type{
+	margin-right: 0;
+}
+
+/* Заголовки карточек */
+.block-counters .count .title{
+	margin-top: 25px;
+	font-family: "Russo One";
+	font-size: 15px;
+	text-transform: uppercase;
+}
+
+/* Текст карточек */
+.block-counters .count .text{
+	margin-top: 15px;
+	font-family: Roboto;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 20px;
+}
+
+
+/* Блок requst ------------------------------------------------------------------------------------------------- */
+.block-request{
+	padding: 46px 40px;
+	background-color: #ffaf02;
+	text-align: center;
+}
+
+/* Заголовок блока */
+.block-request .title{
+	font-size: 32px;
+}
+
+/* Кнопка блока */
+.block-request .leave-request{
+	margin-top: 25px;
+	width: 360px;
+	height: 60px;
+	box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+	border-radius: 3px;
+	background-color: #fff;
+	text-transform: uppercase;
+
+	font-size: 24px;
+}
+
+
+/* Блок what we expect ------------------------------------------------------------------------------------------------------- */
+.block-what-we-expect{
+	padding: 48px 0 70px;
+	text-align: center;
+}
+
+/* Меняем ширину контейнера содержимого */
+.block-what-we-expect .container{
+	max-width: 945px;
+}
+
+/* Заголовок блока */
+.block-what-we-expect .title{
+	font-size: 32px;
+}
+
+/* Секция с элементами блока */
+.block-what-we-expect .section-items{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-moz-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	-o-flex-wrap: wrap;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-top: 54px;
+}
+
+/* Элементы секции */
+.block-what-we-expect .section-items .item{
+	width: 106px;
+	height: 92px;
+	background-position: bottom center;
+	background-size: auto;
+	text-align: center;
+	position: relative;
+}
+
+/* Элемент с картинкой авто */
+.block-what-we-expect .middle-line-car{
+	display: block;
+	width: 100%;
+	height: 290px;
+	background-image: url("../img/item-car.png");
+	background-position: center;
+	background-size: auto;
+	margin: 35px 0;
+	z-index: -1;
+}
+
+/* Элементы нижней секции */
+.block-what-we-expect .section-items .item.bottom-line{
+	background-position: top center;
+	height: 114px;
+	padding-top: 76px;
+}
+
+/* Заголовок элементов */
+.block-what-we-expect .section-items .item h5{
+	color: #555;
+	font-family: Roboto;
+	font-size: 16px;
+	font-weight: 400;
+	text-decoration: underline;
+}
+
+/* Картинки секции */
+.block-what-we-expect .section-items .item-1{
+	background-image: url("../img/items-image-1.png");
+}
+.block-what-we-expect .section-items .item-2{
+	background-image: url("../img/items-image-2.png");
+}
+.block-what-we-expect .section-items .item-3{
+	background-image: url("../img/items-image-3.png");
+}
+.block-what-we-expect .section-items .item-4{
+	background-image: url("../img/items-image-4.png");
+}
+.block-what-we-expect .section-items .item-5{
+	background-image: url("../img/items-image-5.png");
+}
+.block-what-we-expect .section-items .item-6{
+	background-image: url("../img/items-image-6.png");
+}
+.block-what-we-expect .section-items .item-7{
+	background-image: url("../img/items-image-7.png");
+}
+.block-what-we-expect .section-items .item-8{
+	background-image: url("../img/items-image-8.png");
+}
+.block-what-we-expect .section-items .item-9{
+	background-image: url("../img/items-image-9.png");
+}
+.block-what-we-expect .section-items .item-10{
+	background-image: url("../img/items-image-10.png");
+}
+.block-what-we-expect .section-items .item-11{
+	background-image: url("../img/items-image-11.png");
+}
+.block-what-we-expect .section-items .item-12{
+	background-image: url("../img/items-image-12.png");
+}
+.block-what-we-expect .section-items .item-13{
+	background-image: url("../img/items-image-13.png");
+}
+.block-what-we-expect .section-items .item-14{
+	background-image: url("../img/items-image-14.png");
+}
+
+/* Линия под элементами */
+.block-what-we-expect .section-items .item:before{
+	content: " ";
+	height: 50px;
+	position: absolute;
+	bottom: -50px;
+	left: 50%;
+}
+.block-what-we-expect .section-items .item-1:before{
+	width: 84px;
+	background-image: linear-gradient(to bottom left, transparent 49%, #eaeaea, transparent 51%);
+}
+.block-what-we-expect .section-items .item-2:before{
+	width: 55px;
+	background-image: linear-gradient(to bottom left, transparent 49%, #eaeaea, transparent 51%);
+}
+.block-what-we-expect .section-items .item-3:before{
+	background-image: linear-gradient(to bottom left, transparent 48%, #eaeaea, transparent 52%);
+	width: 26px;
+}
+.block-what-we-expect .section-items .item-4:before{
+	width: 1px;
+	background-color: #eaeaea;
+}
+.block-what-we-expect .section-items .item-5:before{
+	background-image: linear-gradient(to bottom right, transparent 48%, #eaeaea, transparent 52%);
+	left: unset;
+	right: 50%;
+	width: 26px;
+}
+.block-what-we-expect .section-items .item-6:before{
+	background-image: linear-gradient(to bottom right, transparent 49%, #eaeaea, transparent 51%);
+	left: unset;
+	right: 50%;
+	width: 55px;
+}
+.block-what-we-expect .section-items .item-7:before{
+	background-image: linear-gradient(to bottom right, transparent 49%, #eaeaea, transparent 51%);
+	left: unset;
+	right: 50%;
+	width: 84px;
+}
+
+/* Линия под элементами нижней секции */
+.block-what-we-expect .section-items .item.bottom-line:before{
+	bottom: unset;
+	top: -50px;
+}
+.block-what-we-expect .section-items .item-8:before{
+	left: 50%;
+	width: 84px;
+	background-image: linear-gradient(to bottom right, transparent 49%, #eaeaea, transparent 51%);
+}
+.block-what-we-expect .section-items .item-9:before{
+	left: 50%;
+	width: 55px;
+	background-image: linear-gradient(to bottom right, transparent 49%, #eaeaea, transparent 51%);
+}
+.block-what-we-expect .section-items .item-10:before{
+	left: 50%;
+	width: 26px;
+	background-image: linear-gradient(to bottom right, transparent 48%, #eaeaea, transparent 52%);
+}
+.block-what-we-expect .section-items .item-11:before{
+	width: 1px;
+	background-color: #eaeaea;
+}
+.block-what-we-expect .section-items .item-12:before{
+	left: unset;
+	right: 50%;
+	width: 26px;
+	background-image: linear-gradient(to bottom left, transparent 48%, #eaeaea, transparent 52%);
+}
+.block-what-we-expect .section-items .item-13:before{
+	left: unset;
+	right: 50%;
+	width: 55px;
+	background-image: linear-gradient(to bottom left, transparent 49%, #eaeaea, transparent 51%);
+}
+.block-what-we-expect .section-items .item-14:before{
+	left: unset;
+	right: 50%;
+	width: 84px;
+	background-image: linear-gradient(to bottom left, transparent 49%, #eaeaea, transparent 51%);
+}
+
+/* Кнопка блока */
+.block-what-we-expect button.leave-request{
+	width: 460px;
+	height: 60px;
+	box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+	border-radius: 3px;
+	background-color: #ffaf02;
+	font-size: 24px;
+	margin-top: 55px;
+}
+
+
+/* Блок services ------------------------------------------------------------------------------------------------------- */
+.block-services{
+	background-image: url("../img/block-services-bg.jpg");
+	padding: 48px 0 60px;
+}
+
+/* Заголовок блока */
+.block-services .container > .title{
+	text-align: center;
+	font-size: 32px;
+	color: #fff;
+}
+
+/* Секция услуг */
+.block-services .section-services{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-moz-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	-o-flex-wrap: wrap;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+/* Карточки услуг */
+.block-services .section-services .service{
+	width: 48%;
+	min-height: 360px;
+	background-color: #fff;
+	padding: 20px 32px 73px 195px;
+	background-size: 175px 100%;
+	background-position: left center;
+	margin-top: 30px;
+	position: relative;
+}
+
+/* Картинки карточек */
+.block-services .section-services .service-1{
+	background-image: url("../img/service-1.jpg");
+}
+.block-services .section-services .service-2{
+	background-image: url("../img/service-2.jpg");
+}
+.block-services .section-services .service-3{
+	background-image: url("../img/service-3.jpg");
+}
+.block-services .section-services .service-4{
+	background-image: url("../img/service-4.jpg");
+}
+
+/* Заголовки карточек */
+.block-services .section-services .service .title{
+	font-size: 20px;
+	font-weight: 400;
+	margin-bottom: 20px;
+}
+
+/* Маркеры списка */
+.block-services .section-services .service .fa-li{
+	width: auto;
+	left: 0;
+}
+.block-services .section-services .service .fa-li i{
+	color: #ffaf02;
+}
+
+/* Элементы списка */
+.block-services .section-services .service li{
+	padding-left: 22px;
+	line-height: 20px;
+	font-family: 'Roboto';
+	font-size: 14px;
+}
+
+/* Стоимость в карточке */
+.block-services .section-services .service .price{
+	font-size: 18px;
+	margin-top: 18px;
+}
+/* Перенос строки с залогом */
+.block-services .section-services .service .price span{
+	display: block;
+	margin-top: 3px;
+}
+
+/* Кнопка заказать в карточке */
+.block-services .section-services .service .order{
+	width: 180px;
+	height: 40px;
+	box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+	border-radius: 3px;
+	background-color: #ffaf02;
+	position: absolute;
+	bottom: 20px;
+	left: 195px;
+	font-size: 20px;
+	font-weight: 400;
+}
+
+
+/* Блок additional services ------------------------------------------------------------------------------------------------------- */
+.block-additional-services{
+	height: 310px;
+	background-color: #f0f0f0;
+	padding-top: 48px;
+	text-align: center;
+}
+
+/* Заголовок блока */
+.block-additional-services h2.title{
+	font-size: 32px;
+}
+
+/* Секция дополнительные услуги */
+.block-additional-services .section-addl-services{
+	margin-top: 55px;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-moz-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	-o-flex-wrap: wrap;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+/* Карточка дополнительной услуги */
+.block-additional-services .section-addl-services .service{
+	width: 22.98%;
+	background-position: center top;
+	background-size: auto;
+	padding: 94px 25px 0;
+	text-align: center;
+}
+
+/* Фон карточек */
+.block-additional-services .section-addl-services .service-1{
+	background-image: url("../img/additional-service-1.jpg");
+}
+.block-additional-services .section-addl-services .service-2{
+	background-image: url("../img/additional-service-2.jpg");
+}
+.block-additional-services .section-addl-services .service-3{
+	background-image: url("../img/additional-service-3.jpg");
+}
+.block-additional-services .section-addl-services .service-4{
+	background-image: url("../img/additional-service-4.jpg");
+}
+
+/* Текст карточек */
+.block-additional-services .section-addl-services .service p{
+	font-size: 16px;
+	line-height: 19.5px;
+	text-align: center;
+}
+
+
+/* Блок why we ------------------------------------------------------------------------------------------------------- */
+.block-why-we{
+	padding: 46px 0 20px;
+	text-align: center;
+}
+
+/* Заголовок блока */
+.block-why-we h2.title{
+	font-size: 32px;
+}
+
+/* Секция с карточками */
+.section{
+	margin-top: 45px;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-moz-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	-o-flex-wrap: wrap;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+/* Карточки */
+.section .card{
+	width: 360px;
+	height: 120px;
+	margin-bottom: 50px;
+	text-align: left;
+}
+
+/* Картинки карточек */
+.block-why-we .section .card .image{
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	float: left;
+	margin-right: 21px;
+}
+.block-why-we .section .card-1 .image{
+	background-image: url("../img/why-we-card-1.jpg");
+}
+.block-why-we .section .card-2 .image{
+	background-image: url("../img/why-we-card-2.jpg");
+}
+.block-why-we .section .card-3 .image{
+	background-image: url("../img/why-we-card-3.jpg");
+}
+.block-why-we .section .card-4 .image{
+	background-image: url("../img/why-we-card-4.jpg");
+}
+.block-why-we .section .card-5 .image{
+	background-image: url("../img/why-we-card-5.jpg");
+}
+.block-why-we .section .card-6 .image{
+	background-image: url("../img/why-we-card-6.jpg");
+}
+
+/* Заголовок карточек */
+.section .card h4{
+	margin-top: 14px;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: 400;
+}
+
+/* Текст карточек */
+.section .card p{
+	font-family: 'Roboto';
+	font-size: 14px;
+	line-height: 20px;
+	margin-top: 8px;
+}
+
+
+/* Блок risks ------------------------------------------------------------------------------------------------------- */
+.block-risks{
+	padding: 46px 0 50px;
+	text-align: center;
+	background-color: #f0f0f0;
+}
+
+/* Заголовок блока */
+.block-risks h2.title{
+	font-size: 32px;
+}
+
+/* Карточки */
+.block-risks .section .card{
+	width: 48.68%;
+	height: 85px;
+	margin-bottom: 26px;
+	text-align: left;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+/* Картинки карточек */
+.block-risks .section .card .image{
+	width: 80px;
+	height: 85px;
+	background-size: auto;
+	float: left;
+	margin-right: 26px;
+}
+.block-risks .section .card-1 .image{
+	background-image: url("../img/risks-card-1.jpg");
+}
+.block-risks .section .card-2 .image{
+	background-image: url("../img/risks-card-2.jpg");
+}
+.block-risks .section .card-3 .image{
+	background-image: url("../img/risks-card-3.jpg");
+}
+.block-risks .section .card-4 .image{
+	background-image: url("../img/risks-card-4.jpg");
+}
+.block-risks .section .card-5 .image{
+	background-image: url("../img/risks-card-5.jpg");
+}
+.block-risks .section .card-6 .image{
+	background-image: url("../img/risks-card-6.jpg");
+}
+
+/* Правая колонка карточки */
+.block-risks .section .card .right-col{
+	height: 85px;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	-moz-flex-direction: column;
+	-ms-flex-direction: column;
+	-o-flex-direction: column;
+	flex-direction: column;
+	justify-content: center;
+}
+/* Заголовок карточек */
+.block-risks .section .card h4{
+	align-self: flex-start;
+	margin-top: 0;
+}
+
+/* Текст карточек */
+.block-risks .section .card p{
+	margin-top: 10px;
+}
+
+/* Кнопка оставить заявку */
+.block-risks button.leave-request{
+	width: 460px;
+	height: 60px;
+	box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+	border-radius: 3px;
+	background-color: #ffaf02;
+	font-size: 24px;
+	text-transform: uppercase;
+	margin-top: 37px;
+}
+
+
+/* Блок calculator ------------------------------------------------------------------------------------------------------- */
+.block-calculator{
+	padding: 50px 0;
+	background-image: url("../img/block-calculator-bg.jpg");
+	background-position: center bottom;
+	background-size: auto;
+}
+
+/* Калькулятор */
+.calculator{
+	float: right;
+	margin-right: 9px;
+	width: 360px;
+	height: 440px;
+	padding: 33px 20px 0;
+	background-color: #ffaf02;
+	text-align: center;
+}
+
+/* Заголовок калькулятора */
+.calculator h3{
+	font-size: 24px;
+}
+
+/* Текст калькулятора */
+.calculator p{
+	font-family: "Roboto";
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 20px;
+	margin-top: 8px;
+	margin-bottom: 16px;
+}
+
+/* Выпадающие списки */
+.calculator select{
+	width: 100%;
+	height: 40px;
+	border-radius: 3px;
+	background-color: #fff;
+	border: none;
+
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+}
+/* Текст выпадающих списков */
+.calculator select, .calculator select option{
+	font-family: "Roboto";
+	font-size: 16px;
+	font-weight: 400;
+	color: #777;
+	padding-left: 8px;
+}
+
+/* Обертка для выпадающих списков */
+.calculator .select-wrapper{
+	position: relative;
+	margin-bottom: 20px;
+}
+
+/* Стрелка выпадающих списков */
+.calculator .select-wrapper i{
+	position: absolute;
+	transform: translateY(-50%);
+	top: 50%;
+	right: 10px;
+	font-size: 16px;
+	color: #777;
+	pointer-events: none;
+}
+
+/* Обертка для поля ввода телефона */
+.calculator .phone-wrapper{
+	position: relative;
+	margin-top: 20px;
+}
+
+/* Поле ввода телефона */
+.calculator input.phone{
+	width: 100%;
+	height: 40px;
+	border-radius: 3px;
+	background-color: #fff;
+	border: none;
+	position: relative;
+	font-family: "Roboto";
+	font-size: 16px;
+	font-weight: 400;
+	color: #777;
+	padding-left: 8px;
+}
+/* placeholder поля ввода телефона */
+.calculator input.phoneLplaceholder{
+	font-family: "Roboto";
+	font-size: 16px;
+	font-weight: 400;
+	color: #777;
+}
+
+/* Убираем тень обязательного поля phone */
+.calculator input.phone:invalid{
+	box-shadow: none;
+}
+
+/* Отображаем звездочку если в поле ничего нет */
+.calculator input.phone:invalid + label{
+	display: block;
+}
+
+/* Красная звездочка поля ввода телефона */
+.calculator .phone-wrapper label{
+	display: none;
+	position: absolute;
+	content: "*";
+	font-size: 16px;
+	color: #c80000;
+	top: 8px;
+	left: 108px;
+	z-index: 1;
+}
+
+/* Кнопка отправки формы */
+.calculator input[type=submit]{
+	width: 100%;
+	height: 50px;
+	box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+	border-radius: 3px;
+	background-color: #fff;
+	font-size: 20px;
+	margin-top: 20px;
+}
+
+
+/* Блок steps ------------------------------------------------------------------------------------------------------- */
+.block-steps{
+	background-image: url("../img/block-steps-bg.jpg");
+	background-size: cover;
+	padding: 46px 0 60px;
+	text-align: center;
+}
+
+/* Уменьшаем ширину контейнера */
+.block-steps > .container{
+	max-width: 975px;
+}
+
+/* Заголовок блока */
+.block-steps .title{
+	color: #ffaf02;
+	font-size: 32px;
+}
+
+/* Секция шагов */
+.block-steps .section-steps{
+	margin-top: 40px;
+}
+
+/* Шаг */
+.block-steps .section-steps .step{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 22px;
+	text-align: left;
+}
+.block-steps .section-steps .step:last-of-type{
+	margin-bottom: 0;
+}
+
+/* Номер шага */
+.block-steps .section-steps .step .number{
+	width: 7.19%;
+	color: #ffaf02;
+	font-size: 48px;
+	text-align: right;
+	text-transform: uppercase;
+	line-height: 38px;
+}
+
+/* Секция в текстом шага */
+.block-steps .section-steps .step .content-wrapper{
+	width: 89.62%;
+}
+
+/* Заголовок шага */
+.block-steps .section-steps .step h4{
+	color: #ffaf02;
+	font-family: "Roboto";
+	font-size: 20px;
+	font-weight: 700;
+	margin-bottom: 2px;
+}
+
+/* Текст шагаБ списки шага */
+.block-steps .section-steps .step p,
+.block-steps .section-steps .step ul li{
+	color: #fff;
+	font-family: Roboto;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 20px;
+}
+.block-steps .section-steps .step ul li{
+	list-style: disc;
+	margin-left: 14px;
+}
+
+/* Кнопка оставить заявку */
+.block-steps button.leave-request{
+	width: 460px;
+	height: 60px;
+	box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+	border-radius: 3px;
+	background-color: #ffaf02;
+	font-size: 24px;
+	margin-top: 46px;
+}
+
+
+/* Блок solved tasks ------------------------------------------------------------------------------------------------------- */
+.block-solved-tasks{
+	padding: 48px 0 60px;
+	text-align: center;
+}
+
+/* Заголовок */
+.block-solved-tasks h2.title{
+	font-size: 32px;
+}
+
+/* Слайдер */
+.slider{
+	margin: 35px auto 80px;
+	width: 100%;
+	max-width: 940px;
+	position: relative;
+}
+
+/* Слайды */
+.slider .slide{
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	min-height: 260px;
+	padding: 27px 40px 29px 260px;
+	background-size: 200px 200px;
+	background-position: 30px 30px;
+	background-color: #f0f0f0;
+	text-align: left;
+	transition: 0;
+}
+
+/* Контент слайда */
+.slider .slide h4.name{
+	font-size: 20px;
+}
+.slider .slide p.car{
+	display: inline-block;
+	font-family: 'Roboto';
+	font-weight: 900;
+	font-size: 16px;
+	text-transform: uppercase;
+	padding: 10px;
+	background-color: #ffaf02;
+	margin-top: 14px;
+	margin-bottom: 5px;
+}
+.slider .slide p.line{
+	font-family: 'Roboto';
+	font-weight: 400;
+	font-size: 15.9px;
+	line-height: 30px;
+}
+.slider .slide p.line span{
+	/*font-weight: 700;*/
+}
+/* Кнопка в слайде */
+.slider .slide button.watch-review{
+	width: 280px;
+	height: 40px;
+	box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+	border-radius: 3px;
+	background-color: #ffaf02;
+	font-size: 18px;
+	margin-top: 10px;
+}
+
+/* Управляющие стрелки */
+.slider .slider-arrows .arrow{
+	transform: translateY(-50%);
+	position: absolute;
+	top: 50%;
+}
+.slider .slider-arrows .arrow > i{
+	font-size: 50px;
+	color: #f0f0f0;
+}
+
+/* Положение левой стрелки */
+.slider .slider-arrows .arrow-left{
+	left: -51px;
+}
+/* Положение правой стрелки */
+.slider .slider-arrows .arrow-right{
+	right: -51px;
+}
+
+/* При наведении на стрелки */
+.slider .slider-arrows .arrow:hover{
+	transform: translateY(-50%) scale(1.15);
+	cursor: pointer;
+}
+.slider .slider-arrows .arrow:hover > i{
+	color: #ffaf02;
+}
+
+/* Секция управляющих точек */
+.slider .slider-dots{
+	position: absolute;
+	transform: translateX(-50%);
+	bottom: -46px;
+	left: 50%;
+
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: center;
+	flex-wrap: nowrap;
+}
+
+/* Управляющие точки */
+.slider .slider-dots .dot{
+	width: 16px;
+	height: 16px;
+	background-color: #f0f0f0;
+	margin-right: 14px;
+}
+.slider .slider-dots .dot:last-of-type{
+	margin-right: 0;
+}
+
+/* Точки при наведении */
+.slider .slider-dots .dot:hover{
+	transform: scale(1.1);
+	background-color: #ffaf02;
+}
+
+/* Точка активного слайда */
+.slider .slider-dots .dot.active{
+	background-color: #ffaf02;
+}
+
+/* Кнопка блока Хочу так же */
+.block-solved-tasks button.leave-request{
+	width: 360px;
+	height: 60px;
+	box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+	border-radius: 3px;
+	background-color: #ffaf02;
+	font-size: 24px;
+}
+
+/* Блок с картой ------------------------------------------------------------------------------------------------------- */
+.block-map{
+	width: 100%;
+	height: 400px;
+	display: flex;
+	justify-content: center;
+	overflow: hidden;
+}
+
+.block-map img{
+	max-width: unset;
+}
+
+
+/* Футер -------------------------------------------------------------------------------------------------------------- */
+footer{
+	padding: 49px 0 61px;
+	background-color: #333333;
+}
+
+/* Колонки */
+footer > .container{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: space-between;
+	-webkit-flex-wrap: wrap;
+	-moz-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	-o-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+
+/* Ширина колонок */
+footer .cols	{
+	width: 50%;
+}
+
+/* Убираем float лого левой колонки */
+footer .left-col .logo{
+	float: none;
+}
+
+/* Текст копирайта левой колонки */
+footer .left-col p{
+	display: block;
+	color: #cccccc;
+	font-family: 'Roboto';
+	font-size: 14px;
+	max-width: 250px;
+	margin-top: 30px;
+	line-height: 17.4px;
+}
+
+/* Таблица в правой колонке */
+footer .right-col table{
+	float: right;
+}
+
+/* Нижние отступы ячеек */
+footer .right-col table tr td{
+	padding-bottom: 10px;
+}
+footer .right-col table tr:last-of-type td{
+	padding-bottom: 0;
+}
+
+/* Колонка иконок */
+footer .right-col .icon{
+	padding-right: 30px;
+}
+
+/* Иконки */
+footer .right-col .icon a{
+	display: block;
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	float: right;
+}
+
+/* Иконки первого ряда */
+footer .right-col .line.phone .icon a{
+	margin-right: 5px;
+	float: left;
+}
+footer .right-col .line.phone .icon a:last-of-type{
+	margin-right: 0;
+}
+
+/* Цвет фона иконок */
+footer .right-col .icon a.phone,
+footer .right-col .icon a.mail{
+	background-color: #fcae17;
+}
+footer .right-col .icon a.whatsapp{
+	background-color: #1ad641;
+}
+footer .right-col .icon a.viber{
+	background-color: #7c3daf;
+}
+footer .right-col .icon a.vk{
+	background-color: #44678c;
+}
+
+/* Изображения иконок */
+footer .right-col .icon i{
+	font-size: 22px;
+	color: #fff;
+	line-height: 30px;
+}
+
+/* Текстовые ссылки */
+footer .right-col .url > a{
+	font-family: 'Roboto';
+}
+footer .right-col .line.vk .url > a,
+footer .right-col .line.mail .url > a{
+	text-decoration: underline;
+}
+
+
+/* ===========================================================================================
+Медиа-запросы
+=========================================================================================== */
+
+/* ---------------------------------------------------
+Для разрешения от 1200px
+--------------------------------------------------- */
+
+@media (min-width: 1200px){
+
+}
+
+
+
+/* ---------------------------------------------------
+Для разрешения от 992px до 1199px
+--------------------------------------------------- */
+
+@media (min-width: 992px) and (max-width: 1199px){
+	/* Top menu -------------------------------------------------------------------------------------- */
+	.navbar-pc{
+		margin-left: 25px;
+	}
+}
+
+
+
+/* ---------------------------------------------------
+Для разрешения до 991px (планшеты и моб. телефоны)
+--------------------------------------------------- */
+
+@media (max-width: 991px){
+	/* Top menu -------------------------------------------------------------------------------------- */
+	/* Закрепляем верхнее меню */
+	.top-menu{
+		position: fixed;
+		top: 0;
+		z-index: 10;
+		width: 100%;
+	}
+
+	/* Кнопка отображения мобильного меню */
+	.top-menu button.mobile-menu{
+		display: block;
+	}
+
+	/* Скрываем navbar-pc */
+	.navbar-pc{
+		display: none;
+	}
+
+
+	/* Блок header ------------------------------------------------------------------------------------------ */
+	/* Добавляем верхний внутренний отступ блоку */
+	.block-header{
+		padding-top: 90px;
+		height: 800px;
+	}
+
+	/* Форма в заголовке */
+	.block-header .f_leave-request{
+		position: absolute;
+		bottom: 70px;
+		right: 15px;
+	}
+
+
+	/* Блок counters ----------------------------------------------------------------------------------------- */
+	/* Секции карточки */
+	.block-counters .count{
+		width: 47.9%;
+		max-width: unset;
+		margin-bottom: 35px;
+	}
+
+
+	/* Блок what we expect ----------------------------------------------------------------------------------- */
+	/* Элементы секции */
+	.block-what-we-expect .section-items .item{
+		width: 100px;
+	}
+
+
+	/* Блок services ----------------------------------------------------------------------------------------- */
+	/* Карточки услуг */
+	.block-services .section-services .service{
+		padding: 25px 20px 73px 20px;
+		background-image: none;
+	}
+
+	/* Кнопка карточки */
+	.block-services .section-services .service .order{
+		left: 20px;
+	}
+
+
+	/* Блок additional services ------------------------------------------------------------------------------ */
+	/* Секция дополнительные услуги */
+	.block-additional-services .section-addl-services{
+		margin-top: 45px;
+	}
+
+
+	/* Блок why we -------------------------------------------------------------------------------------------- */
+	/* Карточки */
+	.block-why-we .section .card:nth-of-type(odd){
+		padding-right: 48px;		
+	}
+
+
+	/* Блок risks ---------------------------------------------------------------------------------------------- */
+	/* Карточки */
+	.block-risks .section .card{
+		margin: 0 auto;
+		width: 82.63%;
+		height: 85px;
+		margin-bottom: 15px;
+	}
+	.block-risks .section .card:last-of-type{
+		margin-bottom: 0;
+	}
+
+
+	/* Блок steps ---------------------------------------------------------------------------------------------- */
+	/* Номер шага */
+	.block-steps .section-steps .step .number{
+		width: 4.58%;
+		text-align: center;
+	}
+
+	/* Секция в текстом шага */
+	.block-steps .section-steps .step .content-wrapper{
+		padding-left: 4.16%;
+		width: 91.26%;
+	}
+	
+
+	/* Блок solved tasks --------------------------------------------------------------------------------------- */
+	.block-solved-tasks{
+		padding-bottom: 50px;
+	}
+}
+
+
+
+/* ---------------------------------------------------
+Для разрешения от 750px до 991px
+--------------------------------------------------- */
+
+@media (min-width: 750px) and (max-width: 991px){
+
+}
+
+
+
+/* ---------------------------------------------------
+Для разрешения от 576px до 749px
+--------------------------------------------------- */
+
+@media (min-width: 576px) and (max-width: 749px){
+	/* Блок header ------------------------------------------------------------------------------------------ */
+	/* Второй текст блока */
+	.block-header .block-text.text-2{
+		padding: 0 25px;
+		font-size: 22px;
+	}
+
+	/* Текст формы */
+	.f_leave-request .text{
+		max-width: unset;
+	}
+
+
+	/* Блок what we expect ----------------------------------------------------------------------------------- */
+	/* Элемент с картинкой авто */
+	.block-what-we-expect .middle-line-car{
+		display: none;
+	}
+
+	/* Элементы нижней секции */
+	.block-what-we-expect .section-items .item.bottom-line{
+		padding-top: 0;
+		background-position: bottom center;
+	}
+
+	/* Все элементы */
+	.block-what-we-expect .section-items .item.bottom-line,
+	.block-what-we-expect .section-items .item.top-line{
+		margin-top: 30px;
+		height: 100px;
+	}
+
+	/* Линия под элементами */
+	.block-what-we-expect .section-items .item:before{
+		display: none;
+	}
+
+
+	/* Блок services ----------------------------------------------------------------------------------------- */
+	/* Карточки услуг */
+	.block-services .section-services .service{
+		padding: 20px 15px 73px 15px;
+		height: 410px;
+	}
+	
+
+	/* Блок additional services ------------------------------------------------------------------------------------------------------- */
+	/* Текст карточек */
+	.block-additional-services .section-addl-services .service p{
+		font-size: 0.9em;
+	}
+
+	/* Карточка дополнительной услуги */
+	.block-additional-services .section-addl-services .service{
+		padding: 94px 4px;
+	}
+
+
+	/* Блок why we ------------------------------------------------------------------------------------------------------- */
+	/* Карточки */
+	.section .card{
+		width: 100%;
+	}
+
+
+	/* Блок risks ---------------------------------------------------------------------------------------------- */
+	/* Карточки */
+	.block-risks .section .card{
+		height: 110px;
+	}
+
+	/* Правая колонка карточки */
+	.block-risks .section .card .right-col{
+		height: 85px;
+	}
+
+	
+	/* Блок solved tasks ------------------------------------------------------------------------------------------------------- */
+	/* Кнопка в слайде */
+	.slider .slide button.watch-review{
+		width: 245px;
+		font-size: 16px;
+	}
+
+
+	/* Футер -------------------------------------------------------------------------------------------------------------- */
+	/* Отступ футера */
+	footer{
+		padding: 25px 0;
+	}
+
+	/* Левая колонка */
+	footer .cols.left-col{
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		display: -o-flex;
+		display: flex;
+		-webkit-flex-direction: column;
+		-moz-flex-direction: column;
+		-ms-flex-direction: column;
+		-o-flex-direction: column;
+		flex-direction: column;
+		text-align: center;
+		align-items: center;
+		justify-content: center;
+	}
+
+	/* Иконки первого ряда */
+	footer .right-col .line.phone .icon a{
+		margin-right: unset;
+		float: none;
+		margin-bottom: 5px;
+	}
+}
+
+
+
+/* ---------------------------------------------------
+Для разрешения до 575px
+--------------------------------------------------- */
+
+@media (max-width: 575px){
+	/* Блок top menu -------------------------------------------------------------------------------------- */
+	/* Скрываем иконки и номер */
+	.top-menu .section-right .icon,
+	.top-menu .section-right .phone{
+		display: none;
+	}
+
+	
+	/* Блок header ---------------------------------------------------------------------------------------------------------- */
+	/* Заголовок блока */
+	.block-header .block-title{
+		line-height: 30px;
+	}
+
+	/* Скрываем второй текст блока */
+	.block-header .block-text.text-2{
+		display: none;
+	}
+
+	/* Скрываем обертку секции автомобиля */
+	.section-car .wrapper{
+		display: none;
+	}
+
+	/* Форма в заголовке */
+	.block-header .f_leave-request{
+		transform: translateX(-50%);
+		left: 50%;
+		bottom: 40px;
+	}
+	
+
+	/* Блок counters ----------------------------------------------------------------------------------------- */
+	/* Обертка секции карточек */
+	.block-counters .container{
+		justify-content: center;
+	}
+
+	/* Секции карточки */
+	.block-counters .count{
+		width: 100%;
+		max-width: 350px;
+		margin-bottom: 45px;
+	}
+
+	/* Заголовки карточек */
+	.block-counters .count .title{
+		margin-top: 15px;
+	}
+
+	/* Текст карточек */
+	.block-counters .count .text{
+		margin-top: 11px;
+	}
+
+
+	/* Блок requst ------------------------------------------------------------------------------------------------- */
+	.block-request{
+		padding: 46px 10px;
+	}
+
+	/* Кнопка блока */
+	.block-request .leave-request{
+		width: 100%;
+	}
+
+
+	/* Блок what we expect ----------------------------------------------------------------------------------- */
+	/* Элемент с картинкой авто */
+	.block-what-we-expect .middle-line-car{
+		display: none;
+	}
+
+	/* Элементы нижней секции */
+	.block-what-we-expect .section-items .item.bottom-line{
+		padding-top: 0;
+		background-position: bottom center;
+	}
+
+	/* Все элементы */
+	.block-what-we-expect .section-items .item.bottom-line,
+	.block-what-we-expect .section-items .item.top-line{
+		margin-top: 30px;
+		height: 100px;
+	}
+
+	/* Линия под элементами */
+	.block-what-we-expect .section-items .item:before{
+		display: none;
+	}
+
+	/* Кнопка блока */
+	.block-what-we-expect button.leave-request{
+		width: 100%;
+		font-size: 22px;
+	}
+
+	
+	/* Блок services ------------------------------------------------------------------------------------------------------- */
+	/* Карточки услуг */
+	.block-services .section-services .service{
+		width: 100%;
+	}
+
+
+	/* Блок additional services ------------------------------------------------------------------------------------------------------- */
+	.block-additional-services{
+		height: unset;
+	}
+
+	/* Секция дополнительные услуги */
+	.block-additional-services .section-addl-services{
+		justify-content: space-around;
+	}
+	/* Карточка дополнительной услуги */
+	.block-additional-services .section-addl-services .service{
+		width: 40%;
+		padding: 94px 5px 0;
+		margin-bottom: 25px;	
+	}
+
+
+	/* Блок risks ------------------------------------------------------------------------------------------------------- */
+	/* Картинки карточек */
+	.block-risks .section .card .image{
+		margin-right: 20px;
+		height: 80px;
+	}
+
+	/* Карточки */
+	.block-risks .section .card{
+		margin: 0 auto;
+		width: 95%;
+		height: auto;
+		margin-bottom: 20px;
+	}
+	.block-risks .section .card:last-of-type{
+		margin-bottom: 0;
+	}
+
+	/* Заголовок карточек */
+	.block-risks .section .card h4{
+		margin-top: 6px;
+	}
+
+	/* Текст карточек */
+	.block-risks .section .card p{
+		display: none;
+	}
+	/* Правая колонка карточки */
+	.block-risks .section .card .right-col{
+		height: auto;
+	}
+	
+	/* Кнопка оставить заявку */
+	.block-risks button.leave-request{
+		width: 100%;
+		font-size: 20px;
+		margin-top: 17px;
+	}
+
+
+	/* Блок steps ------------------------------------------------------------------------------------------------------- */
+	/* Кнопка оставить заявку */
+	.block-steps button.leave-request{
+		width: 100%;
+		font-size: 20px;
+	}
+
+
+	/* Блок solved tasks ------------------------------------------------------------------------------------------------------- */
+	/* Слайды */
+	.slider .slide{
+		min-height: 260px;
+		padding: 25px 20px 20px;
+		background-image: none !important;
+	}
+
+	.slider .slide p.car{
+		margin-bottom: 12px;
+	}
+
+
+	/* footer ------------------------------------------------------------------------------------------------------- */
+	footer {
+	    padding: 30px 0;
+	}
+
+	/* Ширина колонок */
+	footer .cols	{
+		width: 100%;
+		text-align: center;
+	}
+
+	/* Левая колонка */
+	footer .left-col{
+		margin-bottom: 20px;
+	}
+
+	/* Скрываем текст копирайта левой колонки */
+	footer .left-col p{
+		display: none;
+	}
+
+	/* Таблица в правой колонке */
+	footer .right-col table{
+		position: relative;
+		width: 100%;
+	}
+
+	/* Колонка иконок */
+	footer .right-col .icon{
+		padding-right: 0;
+	}
+	
+	footer .right-col .line.phone{
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		display: -o-flex;
+		display: flex;
+		-webkit-flex-direction: column-reverse;
+		-moz-flex-direction: column-reverse;
+		-ms-flex-direction: column-reverse;
+		-o-flex-direction: column-reverse;
+		flex-direction: column-reverse;
+		position: absolute;
+		transform: translateX(-50%);
+		top: 0;
+		left: 50%;
+
+	}
+	/* Колонка иконок первой строки */
+	footer .right-col .line.phone .icon{
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		display: -o-flex;
+		display: flex;
+		justify-content: center;
+	}
+	/* Колонка ссылок первой строки */
+	footer .right-col .line.phone .url{
+		width: 200px;
+	}
+
+	/* Верхний отступ строки vk */
+	footer .right-col .line.vk td{
+		padding-top: 75px;
+	}
+
+	/* Выравнивание текста колонок url строк vk и mail */
+	footer .right-col .line.vk .url,
+	footer .right-col .line.mail .url{
+		text-align: left;
+		width: 35%;
+	}
+
+	/* Выравнивание текста колонок url строк vk и mail */
+	footer .right-col .line.vk .icon,
+	footer .right-col .line.mail .icon{
+		padding-right: 20px;
+		width: 20%;
+	}
+
+	/* Текстовая ссылка line phone */
+	footer .right-col .line.phone .url > a{
+		font-size: 24px;
+		font-weight: 900;
+	}
+}
+
+
+
+/* ---------------------------------------------------
+Для разрешения до 399px
+--------------------------------------------------- */
+
+@media (max-width: 399px){
+	/* Top menu ----------------------------------------------------------------------------------------------------------- */
+	/* Скрываем иконку вк справа от лого */
+	.top-menu .soc-icon.vk{
+		display: none;
+	}
+
+	/* Кнопка отображения мобильного меню */
+	.top-menu button.mobile-menu{
+		margin-left: unset;
+	}
+	
+	/* Блок header ---------------------------------------------------------------------------------------------------------- */
+	.block-header{
+		background-image: none;
+		background-color: #f0f0f0;
+		padding-top: 80px;
+		height: 740px;
+	}
+
+	/* Заголовок блока */
+	.block-header .block-title{
+		padding: 9px 15px 11px;
+	}
+
+	/* Первый текст блока */
+	.block-header .block-text.text-1{
+		line-height: 25px;
+		margin: 9px auto 0;
+	}
+
+	/* Тексты блока */
+	.block-header .block-text{
+		font-size: 18px;
+	}
+
+	/* Скрываем секцию с автомобилем */
+	.block-header .section-car{
+		display: none;
+	}
+
+	/* Форма в заголовке */
+	.f_leave-request{
+		width: calc(100% - 30px);
+	}
+
+	/* Заголовок формы */
+	.f_leave-request .title{
+		font-size: 23px;
+	}
+
+	/* Текст формы */
+	.f_leave-request .text{
+		font-size: 17.5px;
+	}
+
+	/* Позиционируем псвевдоэлемент * относительно label */
+	.f_leave-request input[type=text] + label:after{
+		left: -119px;
+	}
+
+
+	/* Блок counters -------------------------------------------------------------------------------------------------------- */
+	/* Блок requst ------------------------------------------------------------------------------------------------- */
+	/* Блок what we expect ------------------------------------------------------------------------------------------------- */
+	.block-counters,
+	.block-request,
+	.block-what-we-expect{
+		display: none;
+	}
+
+
+	/* Блок services ------------------------------------------------------------------------------------------------------- */
+	.block-services{
+		background-image: none;
+		background-color: #333;
+		padding: 30px 0;
+	}
+
+	/* Заголовок блока */
+	.block-services .container > .title{
+		font-size: 24px;
+	}
+
+	/* Карточки услуг */
+	.block-services .section-services .service{
+		height: unset;
+	}
+
+	/* Заголовки карточек */
+	.block-services .section-services .service .title{
+		font-size: 19.5px;
+	}
+
+
+	/* Блок additional services ------------------------------------------------------------------------------------------------------- */
+	.block-additional-services{
+		padding-top: 30px;
+	}
+
+	/* Заголовок блока */
+	.block-additional-services h2.title{
+		font-size: 24px;
+	}
+
+	/* Секция дополнительные услуги */
+	.block-additional-services .section-addl-services{
+		margin-top: 33px;
+	}
+
+	/* Карточка дополнительной услуги */
+	.block-additional-services .section-addl-services .service{
+		width: 44.44%;
+		padding: 94px 0 0;
+	}
+
+
+	/* Блок why we ------------------------------------------------------------------------------------------------------- */
+	.block-why-we{
+		padding: 30px 0 37px;
+	}
+
+	/* Заголовок блока */
+	.block-why-we h2.title{
+		font-size: 24px;
+		line-height: 30px;
+	}
+
+	/* Секция с карточками */
+	.section{
+		margin-top: 25px;
+	}
+
+	/* Карточки */
+	.section .card{
+		padding-right: unset;
+		width: unset;
+		height: unset;
+		margin-bottom: 19px;
+	}
+
+	.section .card:last-of-type{
+		margin-bottom: 0;
+	}
+
+	/* Картинки карточек */
+	.block-why-we .section .card .image{
+		display: none;
+	}
+
+	/* Заголовок карточек */
+	.section .card h4{
+		margin-top: unset;
+	}
+
+	/* Текст карточек */
+	.section .card p{
+		line-height: 19px;
+		margin-top: 2px;
+	}
+
+
+	/* Блок risks ------------------------------------------------------------------------------------------------------- */
+	.block-risks{
+		padding-top: 30px;
+	}
+
+	/* Заголовок блока */
+	.block-risks h2.title{
+		font-size: 24px;
+		font-weight: 400;
+		line-height: 29px;
+	}
+
+	/* Секция с карточками */
+	.block-risks .section{
+		margin-top: 40px;
+	}
+
+	/* Кнопка оставить заявку - скрываем ненужный текст */
+	.block-risks button.request span{
+		display: none;
+	}
+
+
+	/* Блок calculator ------------------------------------------------------------------------------------------------------- */
+	.block-calculator{
+		display: none;
+	}
+	
+
+	/* Блок steps ------------------------------------------------------------------------------------------------------- */
+	.block-steps{
+		background-image: none;
+		background-color: #333;
+		padding: 30px 0 40px;
+	}
+
+	/* Заголовок блока */
+	.block-steps .title{
+		font-size: 23px;
+		font-weight: 400;
+	}
+
+	/* Номер шага */
+	.block-steps .section-steps .step .number{
+		display: none;
+	}
+
+	/* Секция в тексте шага */
+	.block-steps .section-steps .step .content-wrapper{
+		padding-left: 0;
+		width: 100%;
+	}
+
+	/* Кнопка оставить заявку */
+	.block-steps button.leave-request{
+		width: 100%;
+		margin-top: 20px;
+	}
+	/* Кнопка оставить заявку - скрываем ненужный текст */
+	.block-steps button.leave-request span{
+		display: none;
+	}
+
+
+	/* Блок solved tasks --------------------------------------------------------------------------------------- */
+	.block-solved-tasks{
+		padding: 30px 0 40px;
+	}
+
+	/* Заголовок */
+	.block-solved-tasks h2.title{
+		font-size: 24px;
+	}
+	
+	/* Характеристики */
+	.slider .slide p.line{
+		line-height: 20px;
+		margin-bottom: 12px;
+	}
+
+	/* Кнопка в слайде */
+	.slider .slide button.watch-review{
+		width: 100%;
+		height: 60px;
+	}
+
+	/* Кнопка блока Хочу так же */
+	.block-solved-tasks button.leave-request{
+		width: 100%;
+	}
+}
